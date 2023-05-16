@@ -1,7 +1,7 @@
-import { Text } from "react-native"
+import { Text } from 'react-native'
 
 const Header = () => {
-    return <Text>Header</Text>
+  return <Text>Header</Text>
 }
 
 export default Header

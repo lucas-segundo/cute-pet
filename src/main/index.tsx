@@ -1,8 +1,7 @@
-import HomeScreen from "../presentation/screens/Home"
+import HomeScreen from '../presentation/screens/Home'
 
 const Main = () => {
-
-    return <HomeScreen />
+  return <HomeScreen />
 }
 
 export default Main
