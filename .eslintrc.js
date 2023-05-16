@@ -8,9 +8,19 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    project: ['tsconfig.json'],
   },
   plugins: ['react'],
   rules: {
-    'prettier/prettier': 'error',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-explicit-any': 'error',
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 }

@@ -6,6 +6,7 @@ const HomeScreen = () => {
     <View>
       <Header />
       <Text>HomeScreen</Text>
+      <Text>Lint and husky</Text>
     </View>
   )
 }
