@@ -33,4 +33,14 @@ describe('CategoryItem', () => {
       backgroundColor: '#6366f1',
     })
   })
+
+  it('should render with right testID', () => {
+    const { text } = getMockValues()
+
+    const testID = faker.lorem.word()
+    render(<CategoryItem text={text} testID={testID} />)
+
+    const component = screen.getByTestId(testID)
+    expect(component).toBeTruthy()
+  })
 })
