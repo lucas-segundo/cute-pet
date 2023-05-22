@@ -1,5 +1,5 @@
 import '@testing-library/jest-native/extend-expect'
-import { screen, render } from '@testing-library/react-native'
+import { screen, render, fireEvent } from '@testing-library/react-native'
 
 import { faker } from '@faker-js/faker'
 
@@ -62,5 +62,17 @@ describe('CategoryItem', () => {
 
     const component = screen.getByTestId(testID)
     expect(component).toBeTruthy()
+  })
+
+  it('should render with right onPress', () => {
+    const { text } = getMockValues()
+
+    const testID = faker.lorem.word()
+    const onPress = jest.fn()
+    render(<CategoryItem text={text} testID={testID} onPress={onPress} />)
+
+    const component = screen.getByTestId(testID)
+    fireEvent.press(component)
+    expect(onPress).toBeCalled()
   })
 })
