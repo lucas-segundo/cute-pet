@@ -2,12 +2,28 @@ import { Text, View } from 'react-native'
 
 export interface CategoryItemProps {
   text: string
+  isOutline?: boolean
 }
 
-const CategoryItem = ({ text }: CategoryItemProps) => {
+const CategoryItem = ({ text, isOutline = false }: CategoryItemProps) => {
+  const containerStyle = []
+  const textStyle = []
+
+  if (isOutline) {
+    textStyle.push('text-black')
+  } else {
+    textStyle.push('text-white')
+    containerStyle.push('bg-indigo-500')
+  }
+
   return (
-    <View className="py-3 px-5 border rounded-full border-gray-50 bg-indigo-500">
-      <Text className="text-white">{text}</Text>
+    <View
+      testID="categoryItemContainer"
+      className={`py-3 px-5 border rounded-full border-gray-50 ${containerStyle.join(
+        ' '
+      )}`}
+    >
+      <Text className={`font-bold ${textStyle.join(' ')}`}>{text}</Text>
     </View>
   )
 }
