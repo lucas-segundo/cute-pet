@@ -17,4 +17,14 @@ describe('Category', () => {
     expectToBeOutline(catCategory)
     expectNotToBeOutline(dogCategory)
   })
+
+  it('should have the first item selected', () => {
+    render(<Category />)
+
+    const catCategory = screen.getByTestId('catCategory')
+    const dogCategory = screen.getByTestId('dogCategory')
+
+    expectToBeOutline(dogCategory)
+    expectNotToBeOutline(catCategory)
+  })
 })
