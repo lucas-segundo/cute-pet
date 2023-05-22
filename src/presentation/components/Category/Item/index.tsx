@@ -1,6 +1,6 @@
-import { Text, View } from 'react-native'
+import { Text, Pressable, type PressableProps } from 'react-native'
 
-export interface CategoryItemProps {
+export interface CategoryItemProps extends PressableProps {
   text: string
   isOutline?: boolean
   testID?: string
@@ -10,6 +10,7 @@ const CategoryItem = ({
   text,
   isOutline = false,
   testID,
+  ...props
 }: CategoryItemProps) => {
   const containerStyle = []
   const textStyle = []
@@ -22,14 +23,15 @@ const CategoryItem = ({
   }
 
   return (
-    <View
+    <Pressable
+      {...props}
       testID={testID ?? 'categoryItemContainer'}
       className={`py-3 px-5 border rounded-full border-gray-50 ${containerStyle.join(
         ' '
       )}`}
     >
       <Text className={`font-bold ${textStyle.join(' ')}`}>{text}</Text>
-    </View>
+    </Pressable>
   )
 }
 
