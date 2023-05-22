@@ -1,5 +1,6 @@
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import Category from '../../components/Category'
 import Header from '../../components/Header'
 import SearchInput from '../../components/SearchInput'
 
@@ -8,10 +9,12 @@ const HomeScreen = () => {
     <SafeAreaView>
       <View className="px-5">
         <Header />
-        <View className="mt-5">
+        <View className="my-5">
           <SearchInput placeholder="Procure seu pet fofinho" />
         </View>
-        <Text>Lint and husky</Text>
+        <View>
+          <Category />
+        </View>
       </View>
     </SafeAreaView>
   )

@@ -11,7 +11,7 @@ const Category = () => {
   return (
     <View>
       <Text className="font-bold text-lg">Categoria</Text>
-      <View className="bg-gray-100 p-1 flex-row rounded-full mt-2">
+      <View className="bg-gray-100 p-1 flex-row rounded-full mt-5">
         <CategoryItem
           text="🐈 Gatos"
           testID="catCategory"
