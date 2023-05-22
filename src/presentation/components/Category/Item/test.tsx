@@ -4,6 +4,7 @@ import { screen, render } from '@testing-library/react-native'
 import { faker } from '@faker-js/faker'
 
 import CategoryItem from '.'
+import { type ReactInstance } from 'react'
 
 const getMockValues = () => {
   const text = faker.lorem.text()
@@ -11,6 +12,18 @@ const getMockValues = () => {
   return {
     text,
   }
+}
+
+export const expectToBeOutline = (component: ReactInstance) => {
+  expect(component).not.toHaveStyle({
+    backgroundColor: '#6366f1',
+  })
+}
+
+export const expectNotToBeOutline = (component: ReactInstance) => {
+  expect(component).toHaveStyle({
+    backgroundColor: '#6366f1',
+  })
 }
 
 describe('CategoryItem', () => {
@@ -29,9 +42,16 @@ describe('CategoryItem', () => {
     render(<CategoryItem text={text} isOutline />)
 
     const component = screen.getByTestId('categoryItemContainer')
-    expect(component).not.toHaveStyle({
-      backgroundColor: '#6366f1',
-    })
+    expectToBeOutline(component)
+  })
+
+  it('should not render outline', () => {
+    const { text } = getMockValues()
+
+    render(<CategoryItem text={text} />)
+
+    const component = screen.getByTestId('categoryItemContainer')
+    expectNotToBeOutline(component)
   })
 
   it('should render with right testID', () => {
