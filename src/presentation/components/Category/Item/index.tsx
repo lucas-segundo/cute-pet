@@ -3,9 +3,14 @@ import { Text, View } from 'react-native'
 export interface CategoryItemProps {
   text: string
   isOutline?: boolean
+  testID?: string
 }
 
-const CategoryItem = ({ text, isOutline = false }: CategoryItemProps) => {
+const CategoryItem = ({
+  text,
+  isOutline = false,
+  testID,
+}: CategoryItemProps) => {
   const containerStyle = []
   const textStyle = []
 
@@ -18,7 +23,7 @@ const CategoryItem = ({ text, isOutline = false }: CategoryItemProps) => {
 
   return (
     <View
-      testID="categoryItemContainer"
+      testID={testID ?? 'categoryItemContainer'}
       className={`py-3 px-5 border rounded-full border-gray-50 ${containerStyle.join(
         ' '
       )}`}
