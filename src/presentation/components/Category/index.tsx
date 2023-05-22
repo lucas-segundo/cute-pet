@@ -6,12 +6,12 @@ type CategoryItemSelected = 'cat' | 'dog'
 
 const Category = () => {
   const [categoryItemSelected, setCategoryItemSelected] =
-    useState<CategoryItemSelected>()
+    useState<CategoryItemSelected>('cat')
 
   return (
     <View>
       <Text className="font-bold text-lg">Categoria</Text>
-      <View className="bg-gray-100 p-1 flex-row">
+      <View className="bg-gray-100 p-1 flex-row rounded-full mt-2">
         <CategoryItem
           text="🐈 Gatos"
           testID="catCategory"
