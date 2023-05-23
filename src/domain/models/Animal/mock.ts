@@ -3,7 +3,11 @@ import type Animal from '.'
 import { type AnimalPhoto } from '.'
 
 const mockPhoto = (): AnimalPhoto => ({
-  url: faker.image.avatar(),
+  url: faker.image.urlPlaceholder({
+    width: 400,
+    height: 400,
+    text: '',
+  }),
 })
 
 export const mockAnimal = (): Animal => ({
