@@ -1,4 +1,3 @@
-import '@testing-library/jest-native/extend-expect'
 import { screen, render } from '@testing-library/react-native'
 import AnimalCard from '.'
 import { mockAnimal } from '../../../domain/models/Animal/mock'

@@ -1,4 +1,3 @@
-import '@testing-library/jest-native/extend-expect'
 import { screen, render, fireEvent } from '@testing-library/react-native'
 
 import Category from '.'
