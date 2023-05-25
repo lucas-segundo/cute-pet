@@ -17,3 +17,23 @@ export const mockAnimal = (): Animal => ({
   type: 'cat',
   photos: [mockPhoto(), mockPhoto(), mockPhoto()],
 })
+
+export const mockCatAnimal = (): Animal => {
+  const animal = mockAnimal()
+
+  return {
+    ...animal,
+    type: 'cat',
+    race: faker.animal.cat(),
+  }
+}
+
+export const mockDogAnimal = (): Animal => {
+  const animal = mockAnimal()
+
+  return {
+    ...animal,
+    type: 'dog',
+    race: faker.animal.dog(),
+  }
+}
