@@ -1,17 +1,16 @@
+import { Image, Text, View, type ViewProps } from 'react-native'
 import type Animal from '../../../domain/models/Animal'
-import { View, Image, Text } from 'react-native'
 
-export interface AnimalCardProps {
+export interface AnimalCardProps extends ViewProps {
   animal: Animal
-  containerClassName?: string
 }
 
-const AnimalCard = ({ animal, containerClassName }: AnimalCardProps) => {
+const AnimalCard = ({ animal, ...props }: AnimalCardProps) => {
   return (
     <View
-      testID="container"
+      {...props}
       className={`h-72 border border-gray-200 rounded-2xl p-4 ${
-        containerClassName ?? ''
+        props.className ?? ''
       }`}
     >
       <Image
