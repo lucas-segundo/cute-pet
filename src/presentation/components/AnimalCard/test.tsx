@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react-native'
+import { render, screen } from '@testing-library/react-native'
 import AnimalCard from '.'
 import { mockAnimal } from '../../../domain/models/Animal/mock'
 
@@ -26,11 +26,15 @@ describe('AnimalCard', () => {
     )
   })
 
-  it('should render with correct containerClassName', () => {
+  it('should render with correct view props', () => {
     const { animal, containerClassName } = mockParams()
 
     render(
-      <AnimalCard animal={animal} containerClassName={containerClassName} />
+      <AnimalCard
+        animal={animal}
+        testID="container"
+        className={containerClassName}
+      />
     )
 
     expect(screen.getByTestId('container')).toHaveStyle({
