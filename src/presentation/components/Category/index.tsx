@@ -1,10 +1,9 @@
-import { useAtom } from 'jotai'
 import { Text, View } from 'react-native'
-import { animalTypeState } from '../../states/animal-type'
+import { useAnimalType } from '../../hooks/useAnimalType'
 import CategoryItem from './Item'
 
 const Category = () => {
-  const [animalType, setAnimalType] = useAtom(animalTypeState)
+  const [animalType, setAnimalType] = useAnimalType()
 
   return (
     <View>
