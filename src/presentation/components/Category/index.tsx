@@ -1,12 +1,10 @@
+import { useAtom } from 'jotai'
 import { Text, View } from 'react-native'
-import { useState } from 'react'
+import { animalTypeState } from '../../states/animal-type'
 import CategoryItem from './Item'
 
-type CategoryItemSelected = 'cat' | 'dog'
-
 const Category = () => {
-  const [categoryItemSelected, setCategoryItemSelected] =
-    useState<CategoryItemSelected>('cat')
+  const [animalType, setAnimalType] = useAtom(animalTypeState)
 
   return (
     <View>
@@ -15,17 +13,17 @@ const Category = () => {
         <CategoryItem
           text="🐈 Gatos"
           testID="catCategory"
-          isOutline={categoryItemSelected !== 'cat'}
+          isOutline={animalType !== 'cat'}
           onPress={() => {
-            setCategoryItemSelected('cat')
+            setAnimalType('cat')
           }}
         />
         <CategoryItem
           text="🐕 Cachorros"
           testID="dogCategory"
-          isOutline={categoryItemSelected !== 'dog'}
+          isOutline={animalType !== 'dog'}
           onPress={() => {
-            setCategoryItemSelected('dog')
+            setAnimalType('dog')
           }}
         />
       </View>
